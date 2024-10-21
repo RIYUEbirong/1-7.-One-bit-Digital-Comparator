@@ -1,0 +1,48 @@
+`timescale 1ns / 1ns
+
+module tb_comparator;
+
+    
+    reg A; 
+    reg B; 
+
+    
+    wire LED0;
+    wire LED1;
+    wire LED2;
+
+    
+    comparator uut (
+        .A(A),
+        .B(B),
+        .LED0(LED0),
+        .LED1(LED1),
+        .LED2(LED2)
+    );
+	 
+	 
+	initial begin
+
+    $monitor("A = %b, B = %b | LED0 (A<B) = %b, LED1 (A=B) = %b, LED2 (A>B) = %b", A, B, LED0, LED1, LED2);
+
+
+    A = 0; B = 0;
+    #10;
+    
+
+    A = 0; B = 1;
+    #10;
+    
+
+    A = 1; B = 0;
+    #10;
+    
+
+    A = 1; B = 1;
+    #10;
+    
+
+    $finish;
+  end
+		  
+		  endmodule
