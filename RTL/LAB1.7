@@ -1,0 +1,24 @@
+module comparator (
+    input wire A,
+    input wire B,
+    output reg LED0,
+    output reg LED1,
+    output reg LED2
+);
+
+    always @(*) begin
+    if (A < B) begin
+        LED0 = 1;
+        LED1 = 0;
+        LED2 = 0;
+    end else if (A == B) begin
+        LED0 = 0;
+        LED1 = 1;
+        LED2 = 0;
+    end else if (A > B) begin
+        LED0 = 0;
+        LED1 = 0;
+        LED2 = 1;
+    end
+end
+endmodule
